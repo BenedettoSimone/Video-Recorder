@@ -56,7 +56,8 @@ camera_button.addEventListener('click', async () => {
     const constraints = {
         video: {
             width: 360, height: 288
-        }
+        },
+        facingMode: 'user'
     };
 
     await init(constraints);
