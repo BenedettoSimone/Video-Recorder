@@ -57,7 +57,9 @@ camera_button.addEventListener('click', async () => {
         video: {
             width: 360, height: 288
         },
-        facingMode: 'user'
+        facingMode: {
+            exact: 'environment'
+        }
     };
 
     await init(constraints);
