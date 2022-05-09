@@ -1,0 +1,307 @@
+html{
+    background: #2f1670;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#tsparticles{
+    z-index: 0;
+}
+
+#tsparticles canvas{
+    background-color: transparent!important;
+    z-index: -1!important;
+    opacity: 0.3!important;
+}
+
+#video{
+    z-index: 0;
+    width:360px;
+    height:288px;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+button{
+    width: 150px;
+    padding: 10px;
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
+    background-color: #fff;
+    height: 47px;
+    border: none;
+    border-radius: 10px;
+}
+
+#download-video, #delete-video{
+    margin: 20px;
+}
+
+button:hover{
+    background-color: rebeccapurple;
+    color:white;
+    transition: 0.5s;
+}
+
+#start-camera {
+    margin-top: 50px;
+}
+
+
+#video {
+    display: none;
+    margin: 126px auto 83px auto;
+    scale: 1.5;
+}
+
+#start-record, #stop-record, #download-video, #delete-video {
+    display: none;
+}
+
+.send-video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-video #delete-video button{
+    margin: 0;
+}
+
+
+#title{
+    margin: 45px 0 0 0;
+    color: #ffffff;
+    font-size: 45px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+
+
+/*-----Recording section----*/
+#recording{
+    width: fit-content;
+    margin: 40px auto -40px auto;
+    position: relative;
+    display: none;
+}
+
+#recording h5{
+    margin-left: 27px;
+    color: #ffffff;
+}
+
+/*------RECORDING ANIMATION--------*/
+
+.pulsating-circle {
+    position: absolute;
+    /*left: 50%;*/
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+.pulsating-circle:before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 300%;
+    height: 300%;
+    box-sizing: border-box;
+    margin-left: -100%;
+    margin-top: -100%;
+    border-radius: 45px;
+    background-color: #ffffff;
+    -webkit-animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+.pulsating-circle:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    /*box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);*/
+    -webkit-animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
+    animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
+}
+
+@-webkit-keyframes pulse-ring {
+    0% {
+        transform: scale(0.33);
+    }
+    80%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.33);
+    }
+    80%, 100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes pulse-dot {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.8);
+    }
+}
+@keyframes pulse-dot {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+/* input field */
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#form {
+    border-radius: 5px;
+    width: 300px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    position: absolute;
+    left: 30px;
+    top: 341px;
+    font-weight: bold;
+    display: none;
+    font-size: 15px;
+}
+
+#instruction {
+    border-radius: 5px;
+    width: 300px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#more-instruction{
+    display: none;
+    text-align: left;
+}
+
+#instruction h3{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+
+
+
+@media only screen and (max-width: 1222px) {
+    #instruction {
+        position: static;
+        margin: 18px auto;
+    }
+
+    #form{
+        position: static;
+        margin: 18px auto;
+    }
+
+    #video{
+        scale:1;
+        margin: 56px auto 20px auto;
+    }
+}
+
+
+
+@media only screen and (max-width: 443px) {
+    #instruction {
+        width: 200px;
+        font-size: 10px;
+    }
+
+    #instruction h3{
+        font-size: 12px;
+
+    }
+
+
+    #form{
+        position: static;
+        margin: 18px auto;
+        width: 200px;
+        font-size: 10px;
+    }
+
+
+    #video{
+        scale:0.8;
+        margin: 25px auto 20px auto;
+
+    }
+
+    .send-video{
+        flex-direction: column;
+        margin: -30px;
+    }
+
+    #download-video, #delete-video{
+        margin: -4px;
+    }
+
+    #start-camera, #start-record, #delete-video{
+        margin-bottom: 20px;
+    }
+
+    #start-record, #stop-record{
+        margin: 0px auto;
+    }
+
+}
+
+
+
+
+
+
+@media only screen and (max-width: 374px) {
+    #video{
+        width: 300px;
+        margin: 0px auto 0px auto;
+    }
+}

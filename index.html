@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<script src="chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/page/prompt.js"></script>
+<script src="chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/page/runScript.js"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>VisualSpeechRecognition</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+
+</head>
+
+<body>
+<!--<div id="tsparticles">
+    <canvas class="tsparticles-canvas-el" width="2846" height="1538" style="width: 100%; height: 100%; position: fixed; z-index: -1; top: 0px; left: 0px; background-color:#1b0c43!important; pointer-events: none;"></canvas>
+</div>-->
+<h1 id="title">Video Recorder</h1>
+<div id="instruction">
+
+    <h3 id="title-instruction">Istruzioni per registrare ogni frase</h3>
+
+    <div id="more-instruction">
+        <ol>
+            <li>Inserisci le informazioni nel box in basso.</li>
+            <li>Premi <b>"Start Camera"</b> e dai i permessi richiesti.</li>
+            <li>Inquadra tutto il viso.</li>
+            <li>Premi <b>"Start Recording"</b>, pronuncia la frase e premi <b>"Stop Recording"</b>.</li>
+            <li>Se hai pronunciato correttamente, premi <b>"Download"</b>, altrimenti <b>"Delete"</b>.</li>
+            <li>Dopo aver premuto <b>"Download"</b>, puoi procedere con la prossima frase.</li>
+        </ol>
+    </div>
+</div>
+<div id="form">
+
+    <label for="name-lastname">Iniziali Nome Cognome</label>
+    <input type="text" id="name-lastname" name="name-lastname" placeholder="BS">
+
+    <label for="phrase-code">Iniziali parole della frase</label>
+    <input type="text" id="phrase-code" name="phrase-code" placeholder="CS">
+
+</div>
+<button id="start-camera">Start Camera</button>
+
+<div id="recording">
+    <div class="pulsating-circle"></div>
+    <h5>RECORDING</h5>
+</div>
+
+<!--<video id="video" width="520" height="440" autoplay=""></video>-->
+<video id="video" autoplay=""></video>
+
+
+<button id="start-record">Start Recording</button>
+<button id="stop-record">Stop Recording</button>
+
+<div class="send-video">
+    <a id="download-video"><button>Download</button></a>
+    <button id="delete-video">Delete</button>
+</div>
+
+
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-links@1.22.5/tsparticles.preset.links.bundle.min.js"
+        integrity="sha256-pQsjEmQMchdzQUO6nacx+t2omISa7WUWtnpc3fnga5E=" crossorigin="anonymous"></script>
+<!--<script type="text/javascript">
+    tsParticles.load("tsparticles", { preset: "links" });
+</script>-->
+</body>
+</html>
