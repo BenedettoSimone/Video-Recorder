@@ -45,7 +45,8 @@ let title_instruction =document.querySelector("#title-instruction")
 let more_instruction =document.querySelector("#more-instruction")
 let form =document.querySelector("#form")
 
-
+array_videos= new Array()
+array_url=new Array()
 let stream = null;
 let media_recorder = null;
 let blobs_recorded = [];
@@ -113,8 +114,22 @@ start_button.addEventListener('click', function() {
 
     media_recorder.addEventListener('stop', function() {
 
-        video_local = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/mpg' }));
-        download_link.href = video_local
+
+        video = new Blob(blobs_recorded, { type: 'video/mpg' })
+
+        array_url.push(URL.createObjectURL(video))
+        array_url.push(URL.createObjectURL(video))
+        array_url.push(URL.createObjectURL(video))
+
+
+
+
+
+
+
+
+
+
 
 
         name_lastname = document.getElementById('name-lastname').value
@@ -125,6 +140,20 @@ start_button.addEventListener('click', function() {
         div_recording.style.display = 'none';
         download_link.style.display = 'block';
         delete_button.style.display = 'block';
+
+        for (let k=0;k<3;k++) {
+
+            console.log(array_url[k])
+            download_link.href = array_url[k]
+            download_link.click(function (e) {
+                e.preventDefault();
+
+
+
+
+            });
+        }
+
 
     });
 
