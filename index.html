@@ -11,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
-
 </head>
 
 <body>
@@ -19,6 +18,7 @@
     <canvas class="tsparticles-canvas-el" width="2846" height="1538" style="width: 100%; height: 100%; position: fixed; z-index: -1; top: 0px; left: 0px; background-color:#1b0c43!important; pointer-events: none;"></canvas>
 </div>-->
 <h1 id="title">Video Recorder</h1>
+
 <div id="instruction">
 
     <h3 id="title-instruction">Istruzioni per registrare ogni frase</h3>
@@ -34,15 +34,22 @@
         </ol>
     </div>
 </div>
-<div id="form">
 
+<div id="form">
     <label for="name-lastname">Iniziali Nome Cognome (minuscolo)</label>
     <input type="text" id="name-lastname" name="name-lastname" placeholder="bs">
+</div>
 
-    <label for="phrase-code">Iniziali parole della frase (minuscolo)</label>
-    <input type="text" id="phrase-code" name="phrase-code" placeholder="cs">
+<div id="slideshow-container">
+    <h2 id="finish">FINITO!</h2>
+    <div id="navigation-carousel">
+        <a id="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+        <button id="done" onclick="done()">Done</button>
+        <a id="next" onclick="plusSlides(1, 0)">&#10095;</a>
+    </div>
 
 </div>
+
 <button id="start-camera">Start Camera</button>
 
 <div id="recording">
@@ -70,5 +77,6 @@
 <!--<script type="text/javascript">
     tsParticles.load("tsparticles", { preset: "links" });
 </script>-->
+
 </body>
 </html>

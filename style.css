@@ -2,6 +2,11 @@ html{
     background: #2f1670;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 #tsparticles{
@@ -37,6 +42,27 @@ button{
     border-radius: 10px;
     color: black;
 }
+
+
+#done{
+    width: 47px;
+    padding: 10px;
+    display: block;
+    margin: 20px 5px 20px 5px;
+    cursor: pointer;
+    background-color: #fff;
+    height: min-content;
+    border: none;
+    border-radius: 10px;
+    color: black;
+}
+
+#done:hover{
+    background-color: rebeccapurple;
+    color:white;
+    transition: 0.5s;
+}
+
 
 #download-video, #delete-video{
     margin: 20px;
@@ -228,6 +254,55 @@ input[type=text], select {
 
 }
 
+/*----------carousel of phrases*/
+.mySlides1, #finish {
+    display: none;
+    color: white;
+    margin: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Slideshow container */
+#slideshow-container {
+    max-width: 200px;
+    position: relative;
+    margin: 35px auto -24px auto;
+    text-align: center;
+}
+
+#navigation-carousel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Next & previous buttons */
+#prev, #next {
+    cursor: pointer;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+#next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a grey background color */
+#prev:hover, #next:hover {
+    color: rebeccapurple;
+}
+
 
 
 
@@ -294,11 +369,6 @@ input[type=text], select {
     }
 
 }
-
-
-
-
-
 
 @media only screen and (max-width: 374px) {
     #video{

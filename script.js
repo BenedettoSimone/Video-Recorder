@@ -45,8 +45,7 @@ let title_instruction =document.querySelector("#title-instruction")
 let more_instruction =document.querySelector("#more-instruction")
 let form =document.querySelector("#form")
 
-array_videos= new Array()
-array_url=new Array()
+
 let stream = null;
 let media_recorder = null;
 let blobs_recorded = [];
@@ -82,7 +81,6 @@ async function init(constraints) {
 
 
 /*
-
 camera_button.addEventListener('click', async function() {
     try {
         camera_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
@@ -91,13 +89,11 @@ camera_button.addEventListener('click', async function() {
         alert(error.message);
         return;
     }
-
     video.srcObject = camera_stream;
     camera_button.style.display = 'none';
     video.style.display = 'block';
     start_button.style.display = 'block';
 });
-
 */
 
 start_button.addEventListener('click', function() {
@@ -114,46 +110,21 @@ start_button.addEventListener('click', function() {
 
     media_recorder.addEventListener('stop', function() {
 
-
-        video = new Blob(blobs_recorded, { type: 'video/mpg' })
-
-        array_url.push(URL.createObjectURL(video))
-        array_url.push(URL.createObjectURL(video))
-        array_url.push(URL.createObjectURL(video))
+        video_local = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/mpg' }));
+        download_link.href = video_local
 
 
+        name_lastname = document.getElementById('name-lastname').value;
+        phrase =  document.getElementById(counter).textContent;
+        var matches = phrase.match(/\b(\w)/g); // ['J','S','O','N']
+        phrase_code = matches.join('');
 
-
-
-
-
-
-
-
-
-
-        name_lastname = document.getElementById('name-lastname').value
-        phrase_code = document.getElementById('phrase-code').value
-        download_link.download = phrase_code + '-'+ name_lastname + '.mpg'
+        download_link.download = phrase_code.toLowerCase() + '-'+ name_lastname + '.mpg'
 
         stop_button.style.display = 'none';
         div_recording.style.display = 'none';
         download_link.style.display = 'block';
         delete_button.style.display = 'block';
-
-        for (let k=0;k<3;k++) {
-
-            console.log(array_url[k])
-            download_link.href = array_url[k]
-            download_link.click(function (e) {
-                e.preventDefault();
-
-
-
-
-            });
-        }
-
 
     });
 
@@ -224,6 +195,67 @@ window.onresize= function closeInstruction() {
         instruction.classList.remove("expanded");
         more_instruction.style.display = 'none'
         form.style.display = 'none'
+    }
+}
+
+
+
+/*CAROUSEL*/
+let phrases = ['Andiamo a casa', 'Prendiamo un caffè', 'Dobbiamo studiare', 'Dobbiamo mangiare']
+
+let slideIndex = [1,1];
+let slideId = ["mySlides1"]
+let counter = 0
+
+let nav_container = document.getElementById("navigation-carousel");
+window.onload = function fill_carousel(){
+    for(let i = 0; i<phrases.length; i++){
+
+        const elem = document.createElement("h3");
+        elem.classList.add('mySlides1');
+        elem.setAttribute('id',i);
+
+        if(i==0){
+            elem.style.display = "block";
+        }
+        elem.innerHTML = phrases[i];
+        document.getElementById("slideshow-container").insertBefore(elem, nav_container)
+    }
+}
+
+showSlides(1, 0);
+showSlides(1, 1);
+
+function plusSlides(n, no) {
+    showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+    let i;
+    let x = document.getElementsByClassName(slideId[no]);
+    if (n > x.length) {slideIndex[no] = 1}
+    if (n < 1) {slideIndex[no] = x.length}
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[slideIndex[no]-1].style.display = "block";
+    counter =  x[slideIndex[no]-1].id;
+}
+
+function done() {
+    document.getElementById("slideshow-container").removeChild(document.getElementById(counter));
+    let children = document.querySelector('#slideshow-container').querySelectorAll('.mySlides1');
+    if (children.length === 0){
+        document.getElementById("finish").style.display = "block";
+        document.getElementById("navigation-carousel").style.display = "none";
+    }
+    else{
+        for (var i = 0; i < children.length; i++){
+            if(children[i].id != 0){
+                children[i].id = children[i].id - 1;
+            }
+        }
+        plusSlides(1, 0)
     }
 }
 
