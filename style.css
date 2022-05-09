@@ -221,7 +221,7 @@ input[type=text], select {
     padding: 20px;
     position: absolute;
     left: 30px;
-    top: 341px;
+    top: 427px;
     font-weight: bold;
     display: none;
     font-size: 15px;
@@ -244,6 +244,7 @@ input[type=text], select {
 #more-instruction{
     display: none;
     text-align: left;
+    height: auto;
 }
 
 #instruction h3{
