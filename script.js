@@ -135,7 +135,7 @@ start_button.addEventListener('click', function() {
         var matches = phrase.match(/\b(\w)/g); // ['J','S','O','N']
         phrase_code = matches.join('');
 
-        download_link.download = phrase_code.toLowerCase() + '-'+ name_lastname + '.mpg'
+        download_link.download = phrase_code.toLowerCase() + '-'+ name_lastname.toLowerCase() + '.mpg'
 
         stop_button.style.display = 'none';
         div_recording.style.display = 'none';
