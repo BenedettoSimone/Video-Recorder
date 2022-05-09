@@ -1,5 +1,6 @@
 var sBrowser, sUsrAg = navigator.userAgent;
 
+
 // The order matters here, and this may report false positives for unlisted browsers.
 
 if (sUsrAg.indexOf("Firefox") > -1) {
@@ -52,6 +53,9 @@ let blobs_recorded = [];
 let video_local = null;
 
 
+
+
+
 camera_button.addEventListener('click', async () => {
     const constraints = {
         video: {
@@ -63,9 +67,17 @@ camera_button.addEventListener('click', async () => {
 });
 
 
+
 async function init(constraints) {
     try {
+
         stream = await navigator.mediaDevices.getUserMedia(constraints);
+
+        await stream.getVideoTracks()[0].applyConstraints({
+
+            frameRate: {ideal: 25, max: 25}
+        });
+
 
         video.srcObject = stream;
         camera_button.style.display = 'none';
@@ -100,8 +112,12 @@ start_button.addEventListener('click', function() {
 
     if(sBrowser==="Apple Safari"){
         media_recorder = new MediaRecorder(stream, { mimeType: 'video/mp4' });
+        console.log("1"+stream.frameRate)
+
     }else {
         media_recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+        console.log("2"+stream.frameRate)
+
     }
 
     media_recorder.addEventListener('dataavailable', function(e) {
@@ -129,6 +145,8 @@ start_button.addEventListener('click', function() {
     });
 
     media_recorder.start(1000);
+
+
 
     start_button.style.display = 'none';
     stop_button.style.display = 'block';
