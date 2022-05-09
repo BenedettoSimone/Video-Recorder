@@ -1,6 +1,6 @@
 html{
     background: #2f1670;
-    height: 100%;
+    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     user-select: none; /* supported by Chrome and Opera */
     -webkit-user-select: none; /* Safari */
@@ -65,7 +65,11 @@ button{
 
 
 #download-video, #delete-video{
-    margin: 20px;
+    margin: 0 20px 20px 20px;
+}
+
+#download-video button{
+    margin: 0px auto;
 }
 
 button:hover{
@@ -82,7 +86,7 @@ button:hover{
 #video {
     display: none;
     margin: 126px auto 83px auto;
-    -webkit-transform:scale(1.5);
+    -webkit-transform:scale(1.4);
 }
 
 #start-record, #stop-record, #download-video, #delete-video {
@@ -225,6 +229,7 @@ input[type=text], select {
     font-weight: bold;
     display: none;
     font-size: 15px;
+    z-index: 1;
 }
 
 #instruction {
@@ -239,6 +244,7 @@ input[type=text], select {
     font-size: 15px;
     cursor: pointer;
     text-align: center;
+    z-index: 1;
 }
 
 #more-instruction{
