@@ -137,7 +137,6 @@ start_button.addEventListener('click', function() {
         //phrase_code = matches.join('');
 
         download_link.download = phrases.indexOf(phrase) + '-'+ name_lastname.toLowerCase() + '.mpg'
-
         stop_button.style.display = 'none';
         div_recording.style.display = 'none';
         download_link.style.display = 'block';
@@ -220,25 +219,25 @@ window.onresize= function closeInstruction() {
 
 
 /*CAROUSEL*/
-let phrases = ['Salve quanto costa quell\' articolo?',
-                'È in offerta, costa 10 euro.',
-                'Perfetto, vorrei comprarne due.',
-                'Certo ecco a lei, vuole un sacchetto?',
-                'Sì, grazie e arrivederci.',
-                'Le auguro una buona giornata.',
-                'Buongiorno, io sono Mario.',
-                'Buonasera, io sono Mario',
-                'Piacere Luigi, come stai?',
-                'Tutto bene, tu?',
-                'Tutto bene, grazie.',
-                'Prendiamo un caffè al bar?',
-                'Certo volentieri, io lo prenderò macchiato.',
-                'A che ora arriva il pullman?',
-                'Dovrebbe arrivare tra qualche minuto.',
-                'Quanto costa il biglietto?',
-                'Purtroppo non lo so, però potresti chiedere all’autista.',
-                'Va bene, grazie lo stesso.',
-                'Prego.'
+let phrases = ['Salve quanto costa quell\' articolo?', //0
+                'È in offerta, costa 10 euro.', //1
+                'Perfetto, vorrei comprarne due.', //2
+                'Certo ecco a lei, vuole un sacchetto?', //3
+                'Sì, grazie e arrivederci.', //4
+                'Le auguro una buona giornata.', //5
+                'Buongiorno, io sono Mario.', //6
+                'Buonasera, io sono Mario', //7
+                'Piacere Luigi, come stai?', //8
+                'Tutto bene, tu?', //9
+                'Tutto bene, grazie.', //10
+                'Prendiamo un caffè al bar?', //11
+                'Certo volentieri, io lo prenderò macchiato.', //12
+                'A che ora arriva il pullman?', //13
+                'Dovrebbe arrivare tra qualche minuto.', //14
+                'Quanto costa il biglietto?', //15
+                'Purtroppo non lo so, però potresti chiedere all’autista.', //16
+                'Va bene, grazie lo stesso.', //17
+                'Prego.' //18
 ]
 
 let slideIndex = [1,1];
