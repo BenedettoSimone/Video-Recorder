@@ -60,6 +60,7 @@ camera_button.addEventListener('click', async () => {
     const constraints = {
         video: {
             width: 360, height: 288
+
         }
     };
 
@@ -219,7 +220,26 @@ window.onresize= function closeInstruction() {
 
 
 /*CAROUSEL*/
-let phrases = ['Andiamo a casa', 'Prendiamo un caffè', 'Dobbiamo studiare', 'Dobbiamo mangiare']
+let phrases = ['Salve quanto costa quell\' articolo',
+                'È in offerta, costa 10 euro',
+                'Perfetto, vorrei comprarne due',
+                'Certo ecco a lei, vuole un sacchetto?',
+                'Sì, grazie e arrivederci',
+                'Le auguro una buona giornata',
+                'Buongiorno io sono Mario',
+                'Buonasera io sono Mario',
+                'Piacere Luigi, come stai?',
+                'Tutto bene, tu?',
+                'Tutto bene, grazie',
+                'Prendiamo un caffè al bar?',
+                'Certo volentieri, io lo prenderò macchiato',
+                'A che ora arriva il pullman?',
+                'Dovrebbe arrivare tra qualche minuto',
+                'Quanto costa il biglietto?',
+                'Purtroppo non lo so, però potresti chiedere all’autista',
+                'Va bene, grazie lo stesso',
+                'Prego'
+]
 
 let slideIndex = [1,1];
 let slideId = ["mySlides1"]
