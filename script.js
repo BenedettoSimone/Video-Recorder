@@ -133,10 +133,10 @@ start_button.addEventListener('click', function() {
 
         name_lastname = document.getElementById('name-lastname').value;
         phrase =  document.getElementById(counter).textContent;
-        var matches = phrase.match(/\b(\w)/g); // ['J','S','O','N']
-        phrase_code = matches.join('');
+        //var matches = phrase.match(/\b(\w)/g); // ['J','S','O','N']
+        //phrase_code = matches.join('');
 
-        download_link.download = phrase_code.toLowerCase() + '-'+ name_lastname.toLowerCase() + '.mpg'
+        download_link.download = phrases.indexOf(phrase) + '-'+ name_lastname.toLowerCase() + '.mpg'
 
         stop_button.style.display = 'none';
         div_recording.style.display = 'none';
@@ -220,25 +220,25 @@ window.onresize= function closeInstruction() {
 
 
 /*CAROUSEL*/
-let phrases = ['Salve quanto costa quell\' articolo',
-                'È in offerta, costa 10 euro',
-                'Perfetto, vorrei comprarne due',
+let phrases = ['Salve quanto costa quell\' articolo?',
+                'È in offerta, costa 10 euro.',
+                'Perfetto, vorrei comprarne due.',
                 'Certo ecco a lei, vuole un sacchetto?',
-                'Sì, grazie e arrivederci',
-                'Le auguro una buona giornata',
-                'Buongiorno io sono Mario',
-                'Buonasera io sono Mario',
+                'Sì, grazie e arrivederci.',
+                'Le auguro una buona giornata.',
+                'Buongiorno, io sono Mario.',
+                'Buonasera, io sono Mario',
                 'Piacere Luigi, come stai?',
                 'Tutto bene, tu?',
-                'Tutto bene, grazie',
+                'Tutto bene, grazie.',
                 'Prendiamo un caffè al bar?',
-                'Certo volentieri, io lo prenderò macchiato',
+                'Certo volentieri, io lo prenderò macchiato.',
                 'A che ora arriva il pullman?',
-                'Dovrebbe arrivare tra qualche minuto',
+                'Dovrebbe arrivare tra qualche minuto.',
                 'Quanto costa il biglietto?',
-                'Purtroppo non lo so, però potresti chiedere all’autista',
-                'Va bene, grazie lo stesso',
-                'Prego'
+                'Purtroppo non lo so, però potresti chiedere all’autista.',
+                'Va bene, grazie lo stesso.',
+                'Prego.'
 ]
 
 let slideIndex = [1,1];
