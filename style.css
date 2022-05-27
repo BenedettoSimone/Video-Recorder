@@ -375,6 +375,10 @@ img {
         margin: 0px auto;
     }
 
+    #download-video{
+        margin: 0px auto 20px;
+    }
+
 }
 
 @media only screen and (max-width: 374px) {
