@@ -260,14 +260,20 @@ window.onload = function fill_carousel(){
     }
 }
 
-showSlides(1, 0);
-showSlides(1, 1);
+showSlides(1, 0, 0);
+showSlides(1, 1, 0);
 
-function plusSlides(n, no) {
-    showSlides(slideIndex[no] += n, no);
+
+//because we change the id's when we delete element from carousel
+//we need to distinguish what action we performed (done or next/previous slide)
+//0 if we make next/previous action
+//1 if we make Done action
+
+function plusSlides(n, no, what_action) {
+    showSlides(slideIndex[no] += n, no, what_action);
 }
 
-function showSlides(n, no) {
+function showSlides(n, no, what_action) {
     let i;
     let x = document.getElementsByClassName(slideId[no]);
     if (n > x.length) {slideIndex[no] = 1}
@@ -275,30 +281,25 @@ function showSlides(n, no) {
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
-    x[slideIndex[no]-1].style.display = "block";
-    counter =  x[slideIndex[no]-1].id;
+    if (what_action==0){
+        x[slideIndex[no]-1].style.display = "block";
+        counter =  x[slideIndex[no]-1].id;
+    }
+    else{
+        x[0].style.display = "block";
+        counter =  x[0].id;
+    }
+
 }
 
 function done() {
     document.getElementById("slideshow-container").removeChild(document.getElementById(counter));
     let children = document.querySelector('#slideshow-container').querySelectorAll('.mySlides1');
     if (children.length > 0){
-        //reorder id of carousel's children
-        for (var i = 0; i < children.length; i++) {
-            if (children[i].id > 0) {
-                var temp = children[i].id - 1;
 
-                var elem_aready_exist = document.getElementById(temp);
-
-                //scale id only if not exist another child with same id
-                if (elem_aready_exist == null) {
-                    children[i].id = children[i].id - 1;
-                }
-            }
-        }
-        //console.log("before:"+counter)
-        plusSlides(1, 0)
-        //console.log("after:"+counter)
+        console.log("before:"+counter)
+        plusSlides(1, 0, 1)
+        console.log("after:"+counter)
     }
     else{
         document.getElementById("finish").style.display = "block";
