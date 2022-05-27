@@ -282,17 +282,27 @@ function showSlides(n, no) {
 function done() {
     document.getElementById("slideshow-container").removeChild(document.getElementById(counter));
     let children = document.querySelector('#slideshow-container').querySelectorAll('.mySlides1');
-    if (children.length === 0){
-        document.getElementById("finish").style.display = "block";
-        document.getElementById("navigation-carousel").style.display = "none";
-    }
-    else{
-        for (var i = 0; i < children.length; i++){
-            if(children[i].id != 0){
-                children[i].id = children[i].id - 1;
+    if (children.length > 0){
+        //reorder id of carousel's children
+        for (var i = 0; i < children.length; i++) {
+            if (children[i].id > 0) {
+                var temp = children[i].id - 1;
+
+                var elem_aready_exist = document.getElementById(temp);
+
+                //scale id only if not exist another child with same id
+                if (elem_aready_exist == null) {
+                    children[i].id = children[i].id - 1;
+                }
             }
         }
+        //console.log("before:"+counter)
         plusSlides(1, 0)
+        //console.log("after:"+counter)
+    }
+    else{
+        document.getElementById("finish").style.display = "block";
+        document.getElementById("navigation-carousel").style.display = "none";
     }
 }
 
