@@ -9,3 +9,8 @@ You can change video constraints and phrases in the ``script.js``.
 
 ## Usage
 https://benedettosimone.github.io/Video-Recorder/ or clone the repository.
+
+
+## Developed by
+[Simone Benedetto](https://github.com/BenedettoSimone) <br>
+[Salerno Daniele](https://github.com/DanieleSalerno)
