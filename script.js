@@ -61,7 +61,8 @@ camera_button.addEventListener('click', async () => {
         video: {
             width: 360, height: 288
 
-        }
+        },
+        audio: true
     };
 
     await init(constraints);
