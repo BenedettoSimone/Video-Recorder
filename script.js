@@ -36,7 +36,7 @@ if (sUsrAg.indexOf("Firefox") > -1) {
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let start_button = document.querySelector("#start-record");
-let stop_button = document.querySelector("#stop-record");
+//let stop_button = document.querySelector("#stop-record");
 let download_link = document.querySelector("#download-video");
 let delete_button = document.querySelector("#delete-video");
 let div_recording =document.querySelector("#recording")
@@ -92,33 +92,13 @@ async function init(constraints) {
 }
 
 
-
-
-/*
-camera_button.addEventListener('click', async function() {
-    try {
-        camera_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-    }
-    catch(error) {
-        alert(error.message);
-        return;
-    }
-    video.srcObject = camera_stream;
-    camera_button.style.display = 'none';
-    video.style.display = 'block';
-    start_button.style.display = 'block';
-});
-*/
-
 start_button.addEventListener('click', function() {
 
     if(sBrowser==="Apple Safari"){
         media_recorder = new MediaRecorder(stream, { mimeType: 'video/mp4' });
-        console.log("1"+stream.frameRate)
 
     }else {
         media_recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
-        console.log("2"+stream.frameRate)
 
     }
 
@@ -138,26 +118,42 @@ start_button.addEventListener('click', function() {
         //phrase_code = matches.join('');
 
         download_link.download = phrases.indexOf(phrase) + '-'+ name_lastname.toLowerCase() + '.mpg'
-        stop_button.style.display = 'none';
+        //stop_button.style.display = 'none';
         div_recording.style.display = 'none';
         download_link.style.display = 'block';
         delete_button.style.display = 'block';
 
     });
 
+
     media_recorder.start(1000);
-
-
-
+    setTimeout(() => {
+        media_recorder.stop();
+    }, 3000);
+    startTimer()
     start_button.style.display = 'none';
-    stop_button.style.display = 'block';
+    //stop_button.style.display = 'block';
     div_recording.style.display= 'block';
+
 });
 
+/*
 stop_button.addEventListener('click', function() {
     media_recorder.stop();
 });
+ */
 
+function startTimer(){
+    var timeleft = 2;
+    var timer = setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(timer);
+            document.getElementById('timer').innerHTML = '00:03';
+        }
+        document.getElementById('timer').innerHTML = '00:0'+timeleft;
+        timeleft -= 1;
+    }, 1000);
+}
 
 
 download_link.addEventListener('click', async function () {
@@ -293,6 +289,7 @@ function showSlides(n, no, what_action) {
 
 }
 
+
 function done() {
     document.getElementById("slideshow-container").removeChild(document.getElementById(counter));
     let children = document.querySelector('#slideshow-container').querySelectorAll('.mySlides1');
@@ -307,4 +304,6 @@ function done() {
         document.getElementById("navigation-carousel").style.display = "none";
     }
 }
+
+
 
