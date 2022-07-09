@@ -129,7 +129,7 @@ start_button.addEventListener('click', function() {
     media_recorder.start(1000);
     setTimeout(() => {
         media_recorder.stop();
-    }, 3000);
+    }, 4000);
     startTimer()
     start_button.style.display = 'none';
     //stop_button.style.display = 'block';
@@ -144,13 +144,14 @@ stop_button.addEventListener('click', function() {
  */
 
 function startTimer(){
-    var timeleft = 2;
+    var timeleft = 3;
     var timer = setInterval(function(){
+        document.getElementById('timer').innerHTML = '00:0'+timeleft;
+
         if(timeleft <= 0){
             clearInterval(timer);
-            document.getElementById('timer').innerHTML = '00:03';
+            document.getElementById('timer').innerHTML = '00:04';
         }
-        document.getElementById('timer').innerHTML = '00:0'+timeleft;
         timeleft -= 1;
     }, 1000);
 }
@@ -306,4 +307,7 @@ function done() {
 }
 
 
+// TODO reset timer when 00:00
+// TODO fps 25
+// TODO right dimensions
 
