@@ -59,7 +59,12 @@ let video_local = null;
 camera_button.addEventListener('click', async () => {
     const constraints = {
         video: {
-            width: 360, height: 288
+            width: 360, height: 288,
+            frameRate: {
+                min: 24,  // very important to define min value here
+                ideal: 25,
+                max: 25,
+            }
 
         },
         audio: true
@@ -74,13 +79,6 @@ async function init(constraints) {
     try {
 
         stream = await navigator.mediaDevices.getUserMedia(constraints);
-
-        await stream.getVideoTracks()[0].applyConstraints({
-
-            frameRate: {ideal: 25, max: 25}
-        });
-
-
         video.srcObject = stream;
         camera_button.style.display = 'none';
         video.style.display = 'block';
