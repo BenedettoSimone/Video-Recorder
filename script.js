@@ -59,12 +59,7 @@ let video_local = null;
 camera_button.addEventListener('click', async () => {
     const constraints = {
         video: {
-            width: 360, height: 288,
-            frameRate: {
-                min: 24,  // very important to define min value here
-                ideal: 25,
-                max: 25,
-            }
+            width: 360, height: 288
 
         },
         audio: true
@@ -79,6 +74,13 @@ async function init(constraints) {
     try {
 
         stream = await navigator.mediaDevices.getUserMedia(constraints);
+
+        await stream.getVideoTracks()[0].applyConstraints({
+
+            frameRate: {ideal: 25, max: 25}
+        });
+
+
         video.srcObject = stream;
         camera_button.style.display = 'none';
         video.style.display = 'block';
@@ -216,24 +218,24 @@ window.onresize= function closeInstruction() {
 
 /*CAROUSEL*/
 let phrases = ['Salve quanto costa quell\' articolo?', //0
-                'È in offerta, costa 10 euro.', //1
-                'Perfetto, vorrei comprarne due.', //2
-                'Certo ecco a lei, vuole un sacchetto?', //3
-                'Sì, grazie e arrivederci.', //4
-                'Le auguro una buona giornata.', //5
-                'Buongiorno, io sono Mario.', //6
-                'Buonasera, io sono Mario', //7
-                'Piacere Luigi, come stai?', //8
-                'Tutto bene, tu?', //9
-                'Tutto bene, grazie.', //10
-                'Prendiamo un caffè al bar?', //11
-                'Certo volentieri, io lo prenderò macchiato.', //12
-                'A che ora arriva il pullman?', //13
-                'Dovrebbe arrivare tra qualche minuto.', //14
-                'Quanto costa il biglietto?', //15
-                'Purtroppo non lo so, però potresti chiedere all’autista.', //16
-                'Va bene, grazie lo stesso.', //17
-                'Prego.' //18
+    'È in offerta, costa 10 euro.', //1
+    'Perfetto, vorrei comprarne due.', //2
+    'Certo ecco a lei, vuole un sacchetto?', //3
+    'Sì, grazie e arrivederci.', //4
+    'Le auguro una buona giornata.', //5
+    'Buongiorno, io sono Mario.', //6
+    'Buonasera, io sono Mario', //7
+    'Piacere Luigi, come stai?', //8
+    'Tutto bene, tu?', //9
+    'Tutto bene, grazie.', //10
+    'Prendiamo un caffè al bar?', //11
+    'Certo volentieri, io lo prenderò macchiato.', //12
+    'A che ora arriva il pullman?', //13
+    'Dovrebbe arrivare tra qualche minuto.', //14
+    'Quanto costa il biglietto?', //15
+    'Purtroppo non lo so, però potresti chiedere all’autista.', //16
+    'Va bene, grazie lo stesso.', //17
+    'Prego.' //18
 ]
 
 let slideIndex = [1,1];
